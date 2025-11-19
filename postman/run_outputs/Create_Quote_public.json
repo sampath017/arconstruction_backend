@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "full_name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "0860000000",
+  "service": "Kitchen Renovation",
+  "description": "L-shaped kitchen refit",
+  "source_page": "/",
+  "status": "new",
+  "estimated_value": null,
+  "contracted_value": null,
+  "close_reason": "",
+  "assigned_to": "",
+  "tags": [],
+  "notes": "",
+  "attachment": null,
+  "created_at": "2025-11-19T11:59:29.469279Z",
+  "updated_at": "2025-11-19T11:59:29.469296Z"
+}

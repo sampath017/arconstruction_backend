@@ -1,0 +1,4 @@
+URL: GET http://localhost:8000/api/services/shopfitting/
+Status: 200
+Request headers: {'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+Response headers: {'Date': 'Wed, 19 Nov 2025 11:59:27 GMT', 'Server': 'WSGIServer/0.2 CPython/3.13.7', 'Content-Type': 'application/json', 'Vary': 'Accept, Cookie, origin', 'Allow': 'GET, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '161', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Cross-Origin-Opener-Policy': 'same-origin'}

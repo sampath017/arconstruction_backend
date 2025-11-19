@@ -1,0 +1,21 @@
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "title": "Unlock the Summer Bliss: Why Every Homeowner Needs a Handyman",
+      "slug": "unlock-the-summer-bliss-why-every-homeowner-needs-a-handyman",
+      "excerpt": "As summer approaches...",
+      "cover_image": null,
+      "published_at": "2024-02-28T12:00:00Z"
+    },
+    {
+      "title": "Transform Your Space: The Benefits of Bathroom Renovations in Limerick",
+      "slug": "transform-your-space-the-benefits-of-bathroom-renovations-in-limerick",
+      "excerpt": "Considering a bathroom renovation?",
+      "cover_image": null,
+      "published_at": "2024-02-28T10:00:00Z"
+    }
+  ]
+}

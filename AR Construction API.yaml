@@ -1,0 +1,1500 @@
+openapi: 3.0.3
+info:
+  title: AR Construction API
+  version: 1.0.0
+  description: Services, Gallery, Blog, Site Info, Contact
+paths:
+  /api/blog/:
+    get:
+      operationId: blog_list
+      parameters:
+      - in: query
+        name: is_published
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: published_at
+        schema:
+          type: string
+          format: date-time
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - blog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPostListList'
+          description: ''
+    post:
+      operationId: blog_create
+      tags:
+      - blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostDetail'
+          description: ''
+  /api/blog/{slug}/:
+    get:
+      operationId: blog_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - blog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostDetail'
+          description: ''
+    put:
+      operationId: blog_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PostDetail'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostDetail'
+          description: ''
+    patch:
+      operationId: blog_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPostDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPostDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPostDetail'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostDetail'
+          description: ''
+    delete:
+      operationId: blog_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - blog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/contact-messages/:
+    post:
+      operationId: contact_messages_create
+      tags:
+      - contact-messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactMessage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ContactMessage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ContactMessage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMessage'
+          description: ''
+  /api/gallery/:
+    get:
+      operationId: gallery_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: tags
+        schema:
+          type: string
+        description: Comma-separated list of tags
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGalleryItemList'
+          description: ''
+    post:
+      operationId: gallery_create
+      tags:
+      - gallery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GalleryItem'
+          description: ''
+  /api/gallery/{id}/:
+    get:
+      operationId: gallery_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this gallery item.
+        required: true
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GalleryItem'
+          description: ''
+    put:
+      operationId: gallery_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this gallery item.
+        required: true
+      tags:
+      - gallery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GalleryItem'
+          description: ''
+    patch:
+      operationId: gallery_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this gallery item.
+        required: true
+      tags:
+      - gallery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGalleryItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGalleryItem'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGalleryItem'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GalleryItem'
+          description: ''
+    delete:
+      operationId: gallery_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this gallery item.
+        required: true
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/gallery/bulk-upload/:
+    post:
+      operationId: gallery_bulk_upload_create
+      description: |-
+        Accepts multiple images under the same key 'images',
+        plus optional shared fields, e.g., tags (JSON list), is_active, caption prefix, etc.
+      tags:
+      - gallery
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GalleryItem'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GalleryItem'
+          description: ''
+  /api/pages/:
+    get:
+      operationId: pages_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - pages
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStaticPageList'
+          description: ''
+  /api/pages/{slug}/:
+    get:
+      operationId: pages_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - pages
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaticPage'
+          description: ''
+  /api/quotes/:
+    get:
+      operationId: quotes_list
+      parameters:
+      - in: query
+        name: assigned_to
+        schema:
+          type: string
+      - in: query
+        name: created_from
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: created_to
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: email
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: service
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: tag
+        schema:
+          type: string
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedQuoteList'
+          description: ''
+    post:
+      operationId: quotes_create
+      tags:
+      - quotes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quote'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Quote'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Quote'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+  /api/quotes/{id}/:
+    get:
+      operationId: quotes_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this quote.
+        required: true
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+    put:
+      operationId: quotes_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this quote.
+        required: true
+      tags:
+      - quotes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quote'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Quote'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Quote'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+    patch:
+      operationId: quotes_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this quote.
+        required: true
+      tags:
+      - quotes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedQuote'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedQuote'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedQuote'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+    delete:
+      operationId: quotes_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this quote.
+        required: true
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/quotes/dashboard/:
+    get:
+      operationId: quotes_dashboard_retrieve
+      description: |-
+        Quick KPIs:
+        - total, by status
+        - sum estimated_value, sum contracted_value
+        - last 7/30 days counts
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+  /api/quotes/export_excel/:
+    get:
+      operationId: quotes_export_excel_retrieve
+      description: Exports filtered queryset to a styled Excel (XLSX).
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+  /api/quotes/export_pdf/:
+    get:
+      operationId: quotes_export_pdf_retrieve
+      description: Minimal PDF export (summary table) using reportlab.
+      tags:
+      - quotes
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+          description: ''
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/services/:
+    get:
+      operationId: services_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedServiceListList'
+          description: ''
+  /api/services/{slug}/:
+    get:
+      operationId: services_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceDetail'
+          description: ''
+  /api/services/featured/:
+    get:
+      operationId: services_featured_retrieve
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceList'
+          description: ''
+  /api/site/:
+    get:
+      operationId: site_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - site
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSiteInfoList'
+          description: ''
+components:
+  schemas:
+    ContactMessage:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          maxLength: 30
+        subject:
+          type: string
+          maxLength: 160
+        message:
+          type: string
+        source_page:
+          type: string
+          maxLength: 120
+      required:
+      - email
+      - message
+      - name
+    GalleryItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 160
+        image:
+          type: string
+          format: uri
+        caption:
+          type: string
+        tags: {}
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - image
+    PaginatedGalleryItemList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/GalleryItem'
+    PaginatedPostListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostList'
+    PaginatedQuoteList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quote'
+    PaginatedServiceListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceList'
+    PaginatedSiteInfoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteInfo'
+    PaginatedStaticPageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticPage'
+    PatchedGalleryItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 160
+        image:
+          type: string
+          format: uri
+        caption:
+          type: string
+        tags: {}
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedPostDetail:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 180
+        slug:
+          type: string
+          maxLength: 180
+          pattern: ^[-a-zA-Z0-9_]+$
+        excerpt:
+          type: string
+        body:
+          type: string
+        cover_image:
+          type: string
+          format: uri
+          nullable: true
+        published_at:
+          type: string
+          format: date-time
+    PatchedQuote:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          maxLength: 160
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          maxLength: 40
+        service:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+        source_page:
+          type: string
+          maxLength: 200
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        estimated_value:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        contracted_value:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        close_reason:
+          type: string
+          maxLength: 200
+        assigned_to:
+          type: string
+          maxLength: 120
+        tags: {}
+        notes:
+          type: string
+        attachment:
+          type: string
+          format: uri
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PostDetail:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 180
+        slug:
+          type: string
+          maxLength: 180
+          pattern: ^[-a-zA-Z0-9_]+$
+        excerpt:
+          type: string
+        body:
+          type: string
+        cover_image:
+          type: string
+          format: uri
+          nullable: true
+        published_at:
+          type: string
+          format: date-time
+      required:
+      - body
+      - published_at
+      - title
+    PostList:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 180
+        slug:
+          type: string
+          maxLength: 180
+          pattern: ^[-a-zA-Z0-9_]+$
+        excerpt:
+          type: string
+        cover_image:
+          type: string
+          format: uri
+          nullable: true
+        published_at:
+          type: string
+          format: date-time
+      required:
+      - published_at
+      - title
+    Quote:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          maxLength: 160
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          maxLength: 40
+        service:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+        source_page:
+          type: string
+          maxLength: 200
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        estimated_value:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        contracted_value:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          nullable: true
+        close_reason:
+          type: string
+          maxLength: 200
+        assigned_to:
+          type: string
+          maxLength: 120
+        tags: {}
+        notes:
+          type: string
+        attachment:
+          type: string
+          format: uri
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - email
+      - full_name
+      - id
+      - updated_at
+    ServiceDetail:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 120
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        short_description:
+          type: string
+        body:
+          type: string
+        hero_image:
+          type: string
+          format: uri
+          nullable: true
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceFAQ'
+          readOnly: true
+      required:
+      - faqs
+      - name
+    ServiceFAQ:
+      type: object
+      properties:
+        question:
+          type: string
+          maxLength: 200
+        answer:
+          type: string
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+      required:
+      - answer
+      - question
+    ServiceList:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 120
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        short_description:
+          type: string
+        hero_image:
+          type: string
+          format: uri
+          nullable: true
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+      required:
+      - name
+    SiteInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        company_name:
+          type: string
+          maxLength: 200
+        address:
+          type: string
+        phone_primary:
+          type: string
+          maxLength: 30
+        phone_secondary:
+          type: string
+          maxLength: 30
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        opening_hours: {}
+        hero_title:
+          type: string
+          maxLength: 200
+        hero_subtitle:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - id
+      - updated_at
+    StaticPage:
+      type: object
+      properties:
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        title:
+          type: string
+          maxLength: 200
+        body:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - body
+      - slug
+      - title
+      - updated_at
+    StatusEnum:
+      enum:
+      - new
+      - contacted
+      - contracted
+      - won
+      - lost
+      type: string
+      description: |-
+        * `new` - New
+        * `contacted` - Contacted
+        * `contracted` - Contracted
+        * `won` - Converted / Won
+        * `lost` - Lost
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

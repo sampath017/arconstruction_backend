@@ -1,0 +1,68 @@
+{
+    "info": {
+        "name": "ARConstruction API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "arconstruction-collection"
+    },
+    "item": [
+        {
+            "name": "Site Info",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/site/"
+            }
+        },
+        {
+            "name": "Services List",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/services/"
+            }
+        },
+        {
+            "name": "Service Detail (shopfitting)",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/services/shopfitting/"
+            }
+        },
+        {
+            "name": "Gallery",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/gallery/"
+            }
+        },
+        {
+            "name": "Blog List",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/blog/"
+            }
+        },
+        {
+            "name": "Blog Detail (by slug)",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/api/blog/transform-your-space-the-benefits-of-bathroom-renovations-in-limerick/"
+            }
+        },
+        {
+            "name": "Create Contact Message",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\": \"Jane Doe\", \"email\": \"jane@example.com\", \"phone\": \"0860000000\", \"subject\": \"Kitchen quote\", \"message\": \"Looking for a kitchen renovation.\", \"source_page\": \"/services/bathroom-kitchen-renovation\"}"
+                },
+                "url": "http://localhost:8000/api/contact-messages/"
+            }
+        }
+    ]
+}

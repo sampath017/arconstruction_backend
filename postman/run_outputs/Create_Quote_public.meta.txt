@@ -1,0 +1,5 @@
+URL: POST http://localhost:8000/api/quotes/
+Status: 201
+Request headers: {'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '171'}
+Request body: {"full_name": "Jane Doe", "email": "jane@example.com", "phone": "0860000000", "service": "Kitchen Renovation", "description": "L-shaped kitchen refit", "source_page": "/"}
+Response headers: {'Date': 'Wed, 19 Nov 2025 11:59:29 GMT', 'Server': 'WSGIServer/0.2 CPython/3.13.7', 'Content-Type': 'application/json', 'Vary': 'Accept, Cookie, origin', 'Allow': 'GET, POST, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '389', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Cross-Origin-Opener-Policy': 'same-origin'}

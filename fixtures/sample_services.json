@@ -1,0 +1,110 @@
+[
+    {
+        "model": "services.service",
+        "pk": 1,
+        "fields": {
+            "name": "Maintenance Services",
+            "slug": "maintenance-services",
+            "short_description": "Regular and emergency maintenance.",
+            "body": "Details about maintenance services.",
+            "is_active": true,
+            "order": 1
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 2,
+        "fields": {
+            "name": "Shopfitting",
+            "slug": "shopfitting",
+            "short_description": "Retail and commercial fit-outs.",
+            "body": "Details about shopfitting.",
+            "is_active": true,
+            "order": 2
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 3,
+        "fields": {
+            "name": "Residential & Commercial Renovation",
+            "slug": "residential-commercial-renovation",
+            "short_description": "Renovations for homes and businesses.",
+            "body": "Details about renovations.",
+            "is_active": true,
+            "order": 3
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 4,
+        "fields": {
+            "name": "Bathroom & Kitchen Renovation",
+            "slug": "bathroom-kitchen-renovation",
+            "short_description": "Upgrades and fit-outs for bathrooms and kitchens.",
+            "body": "Details about bathroom & kitchen.",
+            "is_active": true,
+            "order": 4
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 5,
+        "fields": {
+            "name": "Tiling & Flooring",
+            "slug": "tiling-flooring",
+            "short_description": "Flooring and tiling experts.",
+            "body": "Details about tiling & flooring.",
+            "is_active": true,
+            "order": 5
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 6,
+        "fields": {
+            "name": "Carpentry",
+            "slug": "carpentry",
+            "short_description": "Custom carpentry works.",
+            "body": "Details about carpentry.",
+            "is_active": true,
+            "order": 6
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 7,
+        "fields": {
+            "name": "Painting & Decorating",
+            "slug": "painting-decorating",
+            "short_description": "Interior and exterior painting.",
+            "body": "Details about painting & decorating.",
+            "is_active": true,
+            "order": 7
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 8,
+        "fields": {
+            "name": "Plastering",
+            "slug": "plastering",
+            "short_description": "Plastering and finishing.",
+            "body": "Details about plastering.",
+            "is_active": true,
+            "order": 8
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 9,
+        "fields": {
+            "name": "General Plumbing Works",
+            "slug": "general-plumbing-works",
+            "short_description": "General plumbing.",
+            "body": "Details about plumbing.",
+            "is_active": true,
+            "order": 9
+        }
+    }
+]

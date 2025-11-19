@@ -1,0 +1,139 @@
+{
+  "count": 24,
+  "next": "http://localhost:8000/api/gallery/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "title": "A1 1",
+      "image": "http://localhost:8000/media/gallery/A1-1.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 2,
+      "title": "A1",
+      "image": "http://localhost:8000/media/gallery/A1.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 3,
+      "title": "A2",
+      "image": "http://localhost:8000/media/gallery/A2.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 4,
+      "title": "B1",
+      "image": "http://localhost:8000/media/gallery/B1.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 5,
+      "title": "B2",
+      "image": "http://localhost:8000/media/gallery/B2.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 6,
+      "title": "B3",
+      "image": "http://localhost:8000/media/gallery/B3.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 7,
+      "title": "B4",
+      "image": "http://localhost:8000/media/gallery/B4.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 8,
+      "title": "B5",
+      "image": "http://localhost:8000/media/gallery/B5.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 9,
+      "title": "B6",
+      "image": "http://localhost:8000/media/gallery/B6.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 10,
+      "title": "B7",
+      "image": "http://localhost:8000/media/gallery/B7.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 11,
+      "title": "C1",
+      "image": "http://localhost:8000/media/gallery/C1.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    },
+    {
+      "id": 12,
+      "title": "C2",
+      "image": "http://localhost:8000/media/gallery/C2.jpg",
+      "caption": "",
+      "tags": [
+        "general"
+      ],
+      "is_active": true,
+      "created_at": "2025-11-19T10:19:52Z"
+    }
+  ]
+}

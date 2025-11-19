@@ -1,0 +1,70 @@
+{
+  "count": 9,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "name": "Maintenance Services",
+      "slug": "maintenance-services",
+      "short_description": "Regular and emergency maintenance.",
+      "hero_image": null,
+      "order": 1
+    },
+    {
+      "name": "Shopfitting",
+      "slug": "shopfitting",
+      "short_description": "Retail and commercial fit-outs.",
+      "hero_image": null,
+      "order": 2
+    },
+    {
+      "name": "Residential & Commercial Renovation",
+      "slug": "residential-commercial-renovation",
+      "short_description": "Renovations for homes and businesses.",
+      "hero_image": null,
+      "order": 3
+    },
+    {
+      "name": "Bathroom & Kitchen Renovation",
+      "slug": "bathroom-kitchen-renovation",
+      "short_description": "Upgrades and fit-outs for bathrooms and kitchens.",
+      "hero_image": null,
+      "order": 4
+    },
+    {
+      "name": "Tiling & Flooring",
+      "slug": "tiling-flooring",
+      "short_description": "Flooring and tiling experts.",
+      "hero_image": null,
+      "order": 5
+    },
+    {
+      "name": "Carpentry",
+      "slug": "carpentry",
+      "short_description": "Custom carpentry works.",
+      "hero_image": null,
+      "order": 6
+    },
+    {
+      "name": "Painting & Decorating",
+      "slug": "painting-decorating",
+      "short_description": "Interior and exterior painting.",
+      "hero_image": null,
+      "order": 7
+    },
+    {
+      "name": "Plastering",
+      "slug": "plastering",
+      "short_description": "Plastering and finishing.",
+      "hero_image": null,
+      "order": 8
+    },
+    {
+      "name": "General Plumbing Works",
+      "slug": "general-plumbing-works",
+      "short_description": "General plumbing.",
+      "hero_image": null,
+      "order": 9
+    }
+  ]
+}

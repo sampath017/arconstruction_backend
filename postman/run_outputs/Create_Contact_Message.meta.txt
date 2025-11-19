@@ -1,0 +1,5 @@
+URL: POST http://localhost:8000/api/contact-messages/
+Status: 201
+Request headers: {'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '204'}
+Request body: {"name": "Jane Doe", "email": "jane@example.com", "phone": "0860000000", "subject": "Kitchen quote", "message": "Looking for a kitchen renovation.", "source_page": "/services/bathroom-kitchen-renovation"}
+Response headers: {'Date': 'Wed, 19 Nov 2025 11:59:29 GMT', 'Server': 'WSGIServer/0.2 CPython/3.13.7', 'Content-Type': 'application/json', 'Vary': 'Accept, Cookie, origin', 'Allow': 'POST, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '193', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Cross-Origin-Opener-Policy': 'same-origin'}

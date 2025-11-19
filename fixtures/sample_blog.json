@@ -1,0 +1,32 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "Transform Your Space: The Benefits of Bathroom Renovations in Limerick",
+      "slug": "transform-your-space-the-benefits-of-bathroom-renovations-in-limerick",
+      "excerpt": "Considering a bathroom renovation?",
+      "body": "## Why renovate\nMarkdown body here.",
+      "cover_image": null,
+      "published_at": "2024-02-28T10:00:00Z",
+      "is_published": true,
+      "created_at": "2024-02-28T10:01:00Z",
+      "updated_at": "2024-02-28T10:01:00Z"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "Unlock the Summer Bliss: Why Every Homeowner Needs a Handyman",
+      "slug": "unlock-the-summer-bliss-why-every-homeowner-needs-a-handyman",
+      "excerpt": "As summer approaches...",
+      "body": "Content in Markdown.",
+      "cover_image": null,
+      "published_at": "2024-02-28T12:00:00Z",
+      "is_published": true,
+      "created_at": "2024-02-28T12:01:00Z",
+      "updated_at": "2024-02-28T12:01:00Z"
+    }
+  }
+]

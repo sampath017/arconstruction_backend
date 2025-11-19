@@ -1,0 +1,23 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "company_name": "AR Construction",
+      "address": "Apartment B2A Block B, Parkview Hall, Dublin Road, Limerick, V94 VH31",
+      "phone_primary": "061 550 132",
+      "phone_secondary": "083 835 7426",
+      "email": "info@arconstruction.ie",
+      "opening_hours": {
+        "Sunday": "Closed",
+        "Mon-Fri": "8:00am - 5:00pm",
+        "Saturday": "9:00am - 1:00pm"
+      },
+      "hero_title": "Construction Company, Building Contractors and Handyman Services in Limerick",
+      "hero_subtitle": "GET A QUOTE TODAY",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  ]
+}
